@@ -6,5 +6,23 @@ Class Conference
 Class BoardMeeting
 Class Location
 Class Person
+Class AAUOC
+
+AAUOC o-- Location
+AAUOC o-- Event
+AAUOC o-- Person
+
+Location - Event
+
+Event - Member
+Event <|-- BoardMeeting
+Event <|-- Conference
+
+Person <|-- Member
+Person - Conference
+
+Member <|-- BoardMember
+
+BoardMember - BoardMeeting
 
 @enduml
