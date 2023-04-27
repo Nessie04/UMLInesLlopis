@@ -29,21 +29,21 @@ Class AAUOC{
            {method} register(m: Member, e: Event): void
            }
 
-AAUOC o-- Location
-AAUOC o-- Event
-AAUOC o-- Person
+AAUOC o-- "0...*" Location
+AAUOC o-- "0...*" Event
+AAUOC o-- "0...*" Person
 
-Event -- Location : isLocated In
+Event "0...*" - "1" Location : isLocated In
 
 Event <|-- BoardMeeting
 Event <|-- Conference
 
 Person <|-- Member
-Conference - Person : attendsTo
+Conference "0...*" - "0...*" Person : attendsTo
 
 Member <|-- BoardMember
-Member -- Event : attendsTo
+Member "0...*" - "0...*" Event : attendsTo
 
-BoardMeeting -- BoardMember
+BoardMeeting "0...*" - "0...*" BoardMember
 
 @enduml
